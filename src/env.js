@@ -25,4 +25,7 @@ export default {
     isTest,
     isDevelopment,
     BACKEND_URL: process.env.BACKEND_URL,
+    TEST_DB: process.env.TEST_DB,
+    DEV_DB: process.env.DEV_DB,
+    PROD_DB: process.env.PROD_DB,
 }
