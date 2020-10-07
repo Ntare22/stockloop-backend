@@ -1,18 +1,19 @@
-import env from '../env';
+const dotenv = require('dotenv');
+dotenv.config();
 
-export default {
+module.exports =  {
     development: {
-        url: env.DEV_DB,
+        url: process.env.DEV_DB,
         dialect: 'postgres',
         logging: false
     },
     test: {
-        url: env.TEST_DB,
+        url: process.env.TEST_DB,
         dialect: 'postgres',
         logging: false
     },
     production: {
-        url: env.PROD_DB,
+        url: process.env.PROD_DB,
         dialect: 'postgres',
         logging: false
     }
