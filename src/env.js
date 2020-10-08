@@ -28,4 +28,5 @@ export default {
     TEST_DB: process.env.TEST_DB,
     DEV_DB: process.env.DEV_DB,
     PROD_DB: process.env.PROD_DB,
+    BASE_URL: process.env.BASE_URL,
 }
