@@ -7,7 +7,8 @@
     "dev": "nodemon --exec babel-node src/index.js",
     "test": "npm run test:unit",
     "test:unit": "nyc --reporter=html --reporter=text mocha --require @babel/register --recursive './src/**/*.test.js' --env test --timeout 2000 --exit",
-    "migrate:models": "npx sequelize db:migrate"
+    "migrate:models": "npx sequelize db:migrate",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
@@ -41,7 +42,9 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
+    "coveralls": "^3.1.0",
     "mocha": "^8.1.3",
+    "mocha-lcov-reporter": "^1.3.0",
     "nodemon": "^2.0.4",
     "nyc": "^15.1.0",
     "sequelize-cli": "^6.2.0"
