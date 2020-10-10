@@ -19,4 +19,6 @@ export default {
     DEV_DB: process.env.DEV_DB,
     PROD_DB: process.env.PROD_DB,
     BASE_URL: process.env.BASE_URL,
+    SALT: process.env.SALT,
+    JWTKEY: process.env.JWTPRIVATEKEY
 }
