@@ -22,6 +22,7 @@ export default class AuthController {
             const { role, isAuthorized } = existingUser;
             const token = tokenize(email, role, isAuthorized);
 
+
             crypt.decodePassword(password, existingUser.password) ? res.status(200).json({
                 status: 200,
                 message: 'User is successfully logged in',

@@ -1,8 +1,13 @@
 import express from 'express';
-import {createUser} from './users'
+import users from './users.controller'
+import { validateUserFields } from '../../middleware/user.validation'
 
 const UserRouter = express.Router();
 
-UserRouter.post('/users', createUser)
+
+UserRouter.get('/list', users.userList)
+UserRouter.post('/create', users.createUser)
+UserRouter.put('/update', users.updateUser)
+UserRouter.delete('/delete:id', users.deleteUser)
 
 export default UserRouter;
