@@ -6,6 +6,7 @@ import UserRouter from './modules/users';
 const App = express.Router();
 App.use(HomeRouter);
 App.use(AuthRouter);
+
 App.use('/user',UserRouter);
 
 App.use('*', (req, res) => {
@@ -14,5 +15,6 @@ App.use('*', (req, res) => {
         message: `Path not found; METHOD ${req.method}, PATH: ${req.originalUrl}`
     });
 });
+
 
 export default App;
