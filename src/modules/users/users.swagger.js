@@ -93,7 +93,7 @@
 
 /**
  * @swagger
- * /user/update:id:
+ * /user/update/{id}:
  *   put:
  *     tags:
  *       - Update user
@@ -103,7 +103,10 @@
  *       - application/json
  *     consumes:
  *       - application/json
+
  *     parameters:
+ *       - name: id
+ *         in: path
  *       - name: body
  *         in: body
  *         schema:
@@ -136,10 +139,68 @@
  *       '500':
  *             description: Internal server error.
  * */
+/**
+ * @swagger
+ * /user/authorize/{id}:
+ *   patch:
+ *     tags:
+ *       - authorize user
+ *     name: update
+ *     summary: authorize  user
+ *     produces:
+ *       - application/json
+ *     consumes:
+ *       - application/json
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         required: true
+ *         schema:
+ *            type: integer     
+ *     responses:
+ *       '200':
+ *              description: Success.
+ *       '400':
+ *             description: Bad request.
+ *       '401':
+ *             description: Unauthorised.
+ *       '500':
+ *             description: Internal server error.
+ * */
+/**
+ * @swagger
+ * /user/find/{id}:
+ *   get:
+ *     tags:
+ *       - find user
+ *     name: get
+ *     summary: get  user
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         required: true
+ *         schema:
+ *            type: integer       
+ *     produces:
+ *       - application/json
+ *     consumes:
+ *       - application/json
+ *     
+ *     responses:
+ *       '200':
+ *              description: Success.
+ *           
+ *       '400':
+ *             description: Bad request.
+ *       '401':
+ *             description: Unauthorised.
+ *       '500':
+ *             description: Internal server error.
+ * */
 
 /**
  * @swagger
- * /user/delete:id:
+ * /user/delete/{id}:
  *   delete:
  *     tags:
  *       - Delete User
@@ -150,10 +211,11 @@
  *     consumes:
  *       - application/json
  *     parameters:
- *       - name: body
- *         in: body
+ *       - name: id
+ *         in: path
+ *         required: true
  *         schema:
- *           $ref: '#/definitions/user'
+ *            type: integer  
  *     responses:
  *       '200':
  *              description: Success.
