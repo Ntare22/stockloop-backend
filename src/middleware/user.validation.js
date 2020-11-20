@@ -10,6 +10,15 @@ export const createUserSchema=(req, res, next)=> {
                 password:joi.required(),
                 isAuthorized:joi.boolean()
             });
-            validateRequest(req,res, next, schema);
+            validateRequest(req, res, next, schema);
         }
     
+export const rawMaterialSchema= (req, res, next) => {
+    const schema = joi.object({
+        name: joi.string().required(),
+        quantity: joi.number().required(),
+        unit: joi.string().required(),
+        unit_price: joi.number().required()
+    });
+    validateRequest(req, res, next, schema)
+}

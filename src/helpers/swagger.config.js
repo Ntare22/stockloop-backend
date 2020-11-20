@@ -12,7 +12,7 @@ const swaggerDef = {
     securityDefinitions: {
         bearerAuth: {
             type: 'apiKey',
-            name: 'Authorize',
+            name: 'token',
             scheme: 'bearer',
             in: 'header',
         },

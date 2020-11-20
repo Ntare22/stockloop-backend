@@ -4,6 +4,7 @@
   "description": "Inventory Management System backend system",
   "main": "index.js",
   "scripts": {
+    "start": "npm run create && babel-node ./src/index.js",
     "dev": "nodemon --exec babel-node src/index.js",
     "test": "npm run db:reset --env test && npx sequelize db:seed:undo:all --env test && npm run seed --env test && npm run test:unit",
     "test:unit": "nyc --require @babel/register  mocha --recursive './src/**/*.test.js' --env test --timeout 2000 --exit",
@@ -39,7 +40,7 @@
     "body-parser": "^1.19.0",
     "dotenv-extended": "^2.9.0",
     "express": "^4.17.1",
-    "express-validation": "^0.4.5",
+    "express-validation": "^3.0.6",
     "joi": "^7.3.0",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",

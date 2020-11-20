@@ -11,17 +11,9 @@ export default class AuthController {
             } = req.body;
 
             const existingUser = await db.User.findOne({ where: { email }  });
+            const { role, isAuthorized } = existingUser.dataValues;
 
-            // if (!existingUser) {
-            //     return res.status(401).json({
-            //         status: 401,
-            //         message: 'User entered does not exist, contact admin to register'
-            //     })
-            // }
-
-            const { role, isAuthorized } = existingUser;
             const token = tokenize(email, role, isAuthorized);
-
 
             crypt.decodePassword(password, existingUser.password) ? res.status(200).json({
                 status: 200,
