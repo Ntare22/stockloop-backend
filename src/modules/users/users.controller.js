@@ -158,5 +158,35 @@ export default class UsersController {
         }
     }
 
+    static async resetPassword(req, res) {
+        try {
+            const { 
+                email, 
+                password 
+            } = req.body;
+
+            const existingUser = await db.User.findOne({ where: { email }})
+
+            if (!existingUser) {
+                return res.status(401).json({
+                    status: 401,
+                    message: 'User does not exist'
+                })
+            }
+
+            await db.User.update({ password: crypt.hashPassword(password) }, { where: { email }})
+
+            return res.status(200).json({
+                status: 200,
+                message: 'Password has been reset'
+            })
+        } catch (error) {
+            return res.status(500).json({
+                status: 500,
+                message: 'Server Error. Get in contact with super admin'
+            })
+        }
+    }
+
 }
 
