@@ -25,7 +25,7 @@
  * /user/list:
  *   get:
  *     tags:
- *       - fetch all users
+ *       - Users
  *     name: get
  *     summary: fetch all users
  *     produces:
@@ -50,7 +50,7 @@
  * /user/create:
  *   post:
  *     tags:
- *       - Create new user
+ *       - Users
  *     name: create
  *     summary: Creating new user
  *     produces:
@@ -96,7 +96,7 @@
  * /user/update/{id}:
  *   put:
  *     tags:
- *       - Update user
+ *       - Users
  *     name: update
  *     summary: Updating  user
  *     produces:
@@ -144,7 +144,7 @@
  * /user/authorize/{id}:
  *   patch:
  *     tags:
- *       - authorize user
+ *       - Users
  *     name: update
  *     summary: authorize  user
  *     produces:
@@ -172,7 +172,7 @@
  * /user/find/{id}:
  *   get:
  *     tags:
- *       - find user
+ *       - Users
  *     name: get
  *     summary: get  user
  *     parameters:
@@ -203,7 +203,7 @@
  * /user/delete/{id}:
  *   delete:
  *     tags:
- *       - Delete User
+ *       - Users
  *     name: Delete
  *     summary: Deleting  user
  *     produces:

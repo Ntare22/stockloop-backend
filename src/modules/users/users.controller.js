@@ -1,4 +1,3 @@
-
 import db from '../../db/models';
 import crypt from '../../helpers/crypt';
 
