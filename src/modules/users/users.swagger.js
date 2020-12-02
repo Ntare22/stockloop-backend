@@ -276,3 +276,29 @@
  *       '500':
  *             description: Internal server error.
  * */
+/**
+ * @swagger
+ * /user/view/info:
+ *   get:
+ *     security:
+ *       - bearerAuth: []
+ *     tags:
+ *       - Users
+ *     name: get
+ *     summary: fetch logged in user info
+ *     produces:
+ *       - application/json
+ *     consumes:
+ *       - application/json
+ *     responses:
+ *       '200':
+ *              description: Success.
+ *       '400':
+ *             description: Bad request.
+ *       '401':
+ *             description: Unauthorised.
+ *       '500':
+ *             description: Internal server error.
+ *       '404':
+ *             description: Not Found
+ * */
