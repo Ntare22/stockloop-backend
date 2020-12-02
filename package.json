@@ -4,7 +4,7 @@
   "description": "Inventory Management System backend system",
   "main": "index.js",
   "scripts": {
-    "start": "npm run create && babel-node ./src/index.js",
+    "start": "npm run create && npx sequelize db:seed:all && babel-node ./src/index.js",
     "dev": "nodemon --exec babel-node src/index.js",
     "test": "npm run db:reset --env test && npx sequelize db:seed:undo:all --env test && npm run seed --env test && npm run test:unit",
     "test:unit": "nyc --require @babel/register  mocha --recursive './src/**/*.test.js' --env test --timeout 2000 --exit",
