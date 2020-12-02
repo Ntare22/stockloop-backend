@@ -1,3 +1,4 @@
+import localStorage from 'localStorage';
 import db from '../../db/models';
 import crypt from '../../helpers/crypt';
 import { tokenize } from '../../helpers/tokenize';
@@ -14,6 +15,7 @@ export default class AuthController {
             const { role, isAuthorized } = existingUser.dataValues;
 
             const token = tokenize(email, role, isAuthorized);
+            localStorage.setItem('token', token);
 
             crypt.decodePassword(password, existingUser.password) ? res.status(200).json({
                 status: 200,
@@ -31,5 +33,13 @@ export default class AuthController {
                 message: 'Server Error. Get in contact with super admin'
             })
         }
+    }
+
+    static async logout(req, res){
+        localStorage.removeItem('token');
+        return res.status(200).json({
+            status: 200,
+            message: 'User is successfully logged out'
+        })
     }
 }
