@@ -187,5 +187,28 @@ export default class UsersController {
         }
     }
 
+    static async viewInfo(req, res) {
+        try {
+            const { user } = req;
+            const userInfo = user.dataValues;
+
+            return res.status(200).json({
+                status: 200,
+                message: 'User successfully retrived',
+                user: {
+                    'first_name': userInfo.first_name,
+                    'last_name': userInfo.last_name,
+                    'email': userInfo.email,
+                    'role': userInfo.role
+                }
+            })
+        } catch (error) {
+            return res.status(500).json({
+                status: 500,
+                message: 'Server Error. Get in contact with super admin'
+            }) 
+        }
+    }
+
 }
 
