@@ -38,7 +38,6 @@ export default class UsersController {
     static async createUser(req, res) {
         try {
 
-
             const {
                 email,
                 password,

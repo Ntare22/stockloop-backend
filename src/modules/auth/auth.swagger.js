@@ -47,3 +47,20 @@
  *       '500':
  *             description: Internal server error.
  * */
+
+ /**
+ * @swagger
+ * /logout:
+ *   get:
+ *     tags:
+ *       - Authentication
+ *     name: logout
+ *     summary: Logs a user out
+ *     produces:
+ *       - application/json
+ *     consumes:
+ *       - application/json
+ *     responses:
+ *       '200':
+ *             description: User is successfully logged out
+ * */
