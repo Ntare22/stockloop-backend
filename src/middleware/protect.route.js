@@ -6,7 +6,7 @@ export default class protectRoute {
         try {
             const { token } = req.headers;
 
-            if (!token) {
+            if (token === 'undefined') {
                 return res.status.json({
                     status: 401,
                     message: 'no token provided'
@@ -33,7 +33,7 @@ export default class protectRoute {
             }
             return res.status(500).json({
                 status: 500,
-                message: 'Server Error - here'
+                message: 'Server Error'
             })
         }
     }
@@ -77,6 +77,7 @@ export default class protectRoute {
     static async verifySuperAdmin(req, res, next) {
         try {
             const { user } = req;
+
             if ( user.role !== 'super admin' ) {
                 return res.status(401).json({
                     status: 401,

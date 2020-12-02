@@ -226,3 +226,53 @@
  *       '500':
  *             description: Internal server error.
  * */
+/**
+ * @swagger
+ * definitions:
+ *   resetPassword:
+ *     type: object
+ *     properties:
+ *       email:
+ *          type: string
+ *          format: email
+ *       password:
+ *          type: string
+ *          format: password
+ */
+/**
+ * @swagger
+ * /user/reset/password:
+ *   patch:
+ *     security:
+ *       - bearerAuth: []
+ *     tags:
+ *       - Users
+ *     name: reset
+ *     summary: Super Admin is able to reset password
+ *     produces:
+ *       - application/json
+ *     consumes:
+ *       - application/json
+ *     parameters:
+ *       - name: body
+ *         in: body
+ *         schema:
+ *           $ref: '#/definitions/resetPassword'
+ *           type: object
+ *           properties:
+ *              email:
+ *                 type: string
+ *                 format: email
+ *              password:
+ *                 type: string
+ *                 format: password    
+ *     responses:
+ *       '200':
+ *              description: Success.
+ *       '400':
+ *             description: Bad request.
+ *       '401':
+ *             description: Unauthorised.
+ *       '500':
+ *             description: Internal server error.
+ * */

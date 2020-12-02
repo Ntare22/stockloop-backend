@@ -24,6 +24,16 @@ module.exports = {
       createdAt: new Date(),
       updatedAt: new Date()
     },
+    {
+      first_name: 'Jim',
+      last_name: 'Doe',
+      email: 'jim@stockloop.com',
+      role: 'super admin',
+      isAuthorized: true,
+      password: bcrypt.hashSync('jim1234', Number(process.env.SALT)),
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
   ]);
   },
 
