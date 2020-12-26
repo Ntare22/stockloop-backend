@@ -145,9 +145,11 @@ export default class UsersController {
             await db.User.update(req.body, { where: { id } }).then(user => res.json({
                 status: 200,
                 message: `User ${req.body.first_name} ${req.body.last_name} updated success`,
+                user:req.body
             })).catch(e => res.status(500).json({
                 status: 500,
                 message: e.message || "Some error occurred while deleting the User."
+
             }));
         } catch (error) {
             return res.status(500).json({
