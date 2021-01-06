@@ -7,8 +7,8 @@ import {getPagination} from '../../helpers/utils';
 export default class UsersController {
     static async userList(req, res) {
         try {
-            const { page, size } = req.query;
-            await db.User.findAndCountAll(getPagination(page,size)).then(user => res.json({
+            const { page, size,search } = req.query;
+            await db.User.findAndCountAll(getPagination(page,size,search)).then(user => res.json({
                 status: 200,
                 message: 'success',
                 user
