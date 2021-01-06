@@ -1,12 +1,14 @@
 import db from '../../db/models';
 import crypt from '../../helpers/crypt';
+import {getPagination} from '../../helpers/utils';
 
 
 
 export default class UsersController {
     static async userList(req, res) {
         try {
-            await db.User.findAll().then(user => res.json({
+            const { page, size } = req.query;
+            await db.User.findAndCountAll(getPagination(page,size)).then(user => res.json({
                 status: 200,
                 message: 'success',
                 user
